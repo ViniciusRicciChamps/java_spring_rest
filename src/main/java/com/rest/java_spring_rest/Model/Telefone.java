@@ -1,8 +1,5 @@
 package com.rest.java_spring_rest.Model;
 
-import java.io.Serializable;
-
-import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -44,13 +41,15 @@ public class Telefone {
         this.numero = numero;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUsuario_fk() {
+        return usuario_fk;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario_fk(Usuario usuario_fk) {
+        this.usuario_fk = usuario_fk;
     }
+
+    
 
     
 }

@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @SequenceGenerator(name = "seq_telefone", sequenceName = "seq_telefone", allocationSize = 1, initialValue = 1)
 public class Telefone {
@@ -20,6 +22,7 @@ public class Telefone {
     private String numero;
 
     // MUITOS PARA UM, MUITOS TELEFONES PARA UM USUARIO
+    @JsonIgnore //evita recursão
     @ManyToOne
     @JoinColumn(foreignKey =  @ForeignKey(name = "id_usuario_FK"))
     private Usuario usuario_fk;

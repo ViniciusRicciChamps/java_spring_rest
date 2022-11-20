@@ -1,10 +1,15 @@
 package com.rest.java_spring_rest.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -20,6 +25,10 @@ public class Usuario implements Serializable {
     private String login;
 
     private String senha;
+
+    //(mappedBy = "REFERENCIA A FK DA OUTRA CLASS", orphanRemoval = true) APAGA OS TELEFONE CASO O USUARIO FOR APAGADO
+    @OneToMany(mappedBy = "usuario_fk", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<Telefone> telefones = new ArrayList<Telefone>();
 
     private String nome;
 
